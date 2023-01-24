@@ -1,10 +1,10 @@
 const { Pool } = require('pg');
 const queries = require('./queries')
 const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    database: 'postgres',
-    password: 'martin2222'
+    host: process.env.HOST,
+    user: process.env.USER,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD
 })
 
 // GET
