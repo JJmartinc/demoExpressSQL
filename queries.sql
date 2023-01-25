@@ -38,15 +38,3 @@ VALUES
 ('Amanece Madrid lleno de arena','La calima satura Madrid de arena. Pérdidas millonarias',(SELECT id_author FROM authors WHERE email='birja@thebridgeschool.es'),'Sucesos'),
 ('Descubren el motor de agua','Fin de la gasolina. A partir de ahora usaremos agua en nuestros coches',(SELECT id_author FROM authors WHERE email='alvaru@thebridgeschool.es'),'Ciencia'),
 ('Regalan tortillas a cambio de leer la documentación','Fin de la hambruna. A partir de ahora usaremos cerveza para regar alegrias y penas',(SELECT id_author FROM authors WHERE email='guillermu@thebridgeschool.es'),'Actualidad');
--- DELETE --
-DELETE 
-FROM entries AS e
-WHERE e.title=$1,
--- UPDATE --
-UPDATE titles
-SET title = 'Nuevo titulo'
-WHERE title=$1,
--- GET AUTHORS --
-SELECT a.id_author,a.name,a.surname,a.email,a.image
-FROM authors AS a
-ORDER BY a.id_author;

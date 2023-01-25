@@ -19,7 +19,17 @@ const createAuthor = async (req, res) => {
         data: newAuthor
     });
 }
-const deleteAuthor = async(req,res)=>{
+
+/* {
+"name": "Prueba",
+"surname": "Test",
+"image": "https://randomuser.me/api/portraits/thumb/men/62.jpg",
+"id_author": 10,
+"email": "test@thebridgeschool.es"
+} */
+
+//DELETE
+const deleteAuthor = async (req,res)=>{
     const deletAuthor = req.body;// {title}
     const response = await author.deleteAuthor(deletAuthor);
     res.status(200).json({
@@ -28,12 +38,13 @@ const deleteAuthor = async(req,res)=>{
         data: deletAuthor
     });
 }
+
 const updateAuthor = async(req,res)=>{
-    const updatAuthor =req.body;
-    const {email}= req.params.email
+    const updatAuthor = req.body;
+    const {email} = req.query.email;
     const response = await author.updateAuthor(updatAuthor,email);
     res.status(200).json({
-        'message': `Se ha actualizado el autor ${newAuthor.email} de noticias`,
+        'message': `Se ha actualizado el autor ${req.query.email} de noticias`,
         'item_updated':response,
         data:updatAuthor
     })
