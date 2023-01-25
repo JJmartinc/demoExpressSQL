@@ -27,8 +27,6 @@ const entryQueries ={
     updateEntry: `UPDATE entries
     SET content = $1, category = $2
     WHERE title = $3`
-
-
 }
 
 module.exports = entryQueries
