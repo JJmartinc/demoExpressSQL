@@ -7,7 +7,7 @@ const authorQueries ={
     WHERE a.email=$1 `,
     //FUNCIONA
     getAllAuthors: `SELECT * FROM authors`,
-    //NO FUNCIONA/ YA FUNCIONA
+    //FUNCIONA
     createAuthor:`INSERT INTO authors(id_author,name,surname,email,image)
     VALUES ($1,$2,$3,$4,$5)`,
     //FUNCIONA
@@ -21,6 +21,3 @@ const authorQueries ={
 }
 
 module.exports = authorQueries
-
-// INSERT INTO authors(name,surname,id_author,email,image)
-//     VALUES ('Jorge','Martin',3,jorge.martin.carrioon@gmail.com,'https://avatars.githubusercontent.com/u/583231?v=4');
