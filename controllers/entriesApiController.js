@@ -38,6 +38,7 @@ const createEntry = async (req, res) => {
     });
 }
 
+//DELETE
 const deleteEntry = async (req, res) => {
     const deletEntry = req.body.title;
     const response = await entry.deleteEntry(deletEntry);
@@ -48,25 +49,16 @@ const deleteEntry = async (req, res) => {
     });
 }
 
-
+//UPDATE
 const updateEntry = async (req, res) => {
-    const {title} = req.params.title;
-    const editNewEntry = req.body;
-    const response = await entry.updateEntry(title,updateEntry);
-    res.status(200).json({
-        'item_updated': response,
-        data:editNewEntry
-    });}
-
-
-// const authorApiController = async (req, res) => {
-//     const 
-// }
-
-
-
-
-
+    const title = req.query.title
+    const updatedEntry = req.body; // {content,category}
+    const response = await entry.updateEntry(updatedEntry,title);
+    res.status(201).json({
+        "items_updated": response,
+        data: updatedEntry
+    });
+}
 
 module.exports = {
     getEntries,
